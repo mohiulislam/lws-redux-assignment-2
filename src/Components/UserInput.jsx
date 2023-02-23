@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addBooking } from "../redux/counter/actions";
+import Frame from "../img/icons/Frame.svg";
+import Vector1 from "../img/icons/Vector (1).svg";
+import Vector3 from "../img/icons/Vector (3).svg";
 function UserInput() {
   const dispatch = useDispatch();
 
@@ -33,7 +36,7 @@ function UserInput() {
           <div className="des-from">
             <p>Destination From</p>
             <div className="flex flex-row">
-              <img src="./img/icons/Frame.svg" alt="" />
+              <img src={Frame} alt="" />
               <select
                 className="outline-none px-2 py-2 w-full"
                 name="from"
@@ -53,7 +56,7 @@ function UserInput() {
           <div className="des-from">
             <p>Destination To</p>
             <div className="flex flex-row">
-              <img src="./img/icons/Frame.svg" alt="" />
+              <img src={Frame} alt="" />
               <select
                 className="outline-none px-2 py-2 w-full"
                 name="to"
@@ -83,7 +86,7 @@ function UserInput() {
           <div className="des-from">
             <p>Guests</p>
             <div className="flex flex-row">
-              <img src="./img/icons/Vector (1).svg" alt="" />
+              <img src={Vector1} alt="" />
               <select
                 className="outline-none px-2 py-2 w-full"
                 name="guests"
@@ -103,7 +106,7 @@ function UserInput() {
           <div className="des-from !border-r-0">
             <p>Class Name</p>
             <div className="flex flex-row">
-              <img src="./img/icons/Vector (3).svg" alt="" />
+              <img src={Vector3} alt="" />
               <select
                 className="outline-none px-2 py-2 w-full"
                 name="ticketClass"

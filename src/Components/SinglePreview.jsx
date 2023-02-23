@@ -25,7 +25,7 @@ function SinglePreview({ bookingId, from, to, date, guests, ticketClass }) {
           <p className="lws-bookedGustes">{guests}</p>
         </td>
         <td className="px-6 py-4 text-center">
-          <span className="lws-bookedclassName"> {ticketClass} </span>
+          <span className="lws-bookedClass"> {ticketClass} </span>
         </td>
         <td className="px-6 py-4 text-center">
           <div className="flex justify-center gap-4">

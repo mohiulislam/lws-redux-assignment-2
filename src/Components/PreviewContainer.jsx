@@ -3,21 +3,9 @@ import { useSelector } from "react-redux";
 import SinglePreview from "./SinglePreview";
 
 function PreviewContainer() {
-  const state = useSelector((state) => state);
-  console.log(state);
-  const dataToPreview = {};
-
-  const bookingKeys = Object.keys(state).filter((key) =>
-    key.startsWith("booking_")
-  );
-
-  bookingKeys.forEach((key) => (dataToPreview[key] = state[key]));
-  const existingBookingId = bookingKeys.map((stringOfKey) => {
-    return stringOfKey.charAt(stringOfKey.length - 1);
-  });
-  console.log(existingBookingId);
-
-  return Object.keys(dataToPreview).length ? (
+  const bookings = useSelector((state) => state.bookings);
+  console.log(bookings);
+  return bookings?.length ? (
     <div className="table-container">
       <table className="booking-table">
         <thead className="bg-gray-100/50">
@@ -31,19 +19,17 @@ function PreviewContainer() {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
-          {Object.values(dataToPreview)
-            .sort((a, b) => new Date(a.date) - new Date(b.date))
-            .map((booking, index) => (
-              <SinglePreview
-                key={`booking_${index + 1}`}
-                bookingId={`booking_${index + 1}`}
-                from={booking.from}
-                to={booking.to}
-                date={booking.date}
-                guests={booking.guests}
-                ticketClass={booking.ticketClass}
-              />
-            ))}
+          {bookings.map((booking, index) => (
+            <SinglePreview
+              key={index}
+              bookingId={index}
+              from={booking.from}
+              to={booking.to}
+              date={booking.date}
+              guests={booking.guests}
+              ticketClass={booking.ticketClass}
+            />
+          ))}
         </tbody>
       </table>
     </div>
