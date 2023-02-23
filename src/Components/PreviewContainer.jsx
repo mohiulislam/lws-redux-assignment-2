@@ -6,9 +6,16 @@ function PreviewContainer() {
   const state = useSelector((state) => state);
   console.log(state);
   const dataToPreview = {};
-  Object.keys(state)
-    .filter((key) => key.startsWith("booking_"))
-    .forEach((key) => (dataToPreview[key] = state[key]));
+
+  const bookingKeys = Object.keys(state).filter((key) =>
+    key.startsWith("booking_")
+  );
+
+  bookingKeys.forEach((key) => (dataToPreview[key] = state[key]));
+  const existingBookingId = bookingKeys.map((stringOfKey) => {
+    return stringOfKey.charAt(stringOfKey.length - 1);
+  });
+  console.log(existingBookingId);
 
   return Object.keys(dataToPreview).length ? (
     <div className="table-container">
