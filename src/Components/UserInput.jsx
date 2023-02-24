@@ -23,7 +23,6 @@ function UserInput() {
     };
     dispatch(addBooking(submittedData));
   }
-
   return (
     <div className="mt-[160px] mx-4 md:mt-[160px] relative">
       <div className="bg-white rounded-md max-w-6xl w-full mx-auto">
@@ -38,6 +37,7 @@ function UserInput() {
             <div className="flex flex-row">
               <img src={Frame} alt="" />
               <select
+                required
                 className="outline-none px-2 py-2 w-full"
                 name="from"
                 id="lws-from"
@@ -52,12 +52,12 @@ function UserInput() {
               </select>
             </div>
           </div>
-
           <div className="des-from">
             <p>Destination To</p>
             <div className="flex flex-row">
               <img src={Frame} alt="" />
               <select
+                required
                 className="outline-none px-2 py-2 w-full"
                 name="to"
                 id="lws-to"
@@ -72,10 +72,10 @@ function UserInput() {
               </select>
             </div>
           </div>
-
           <div className="des-from">
             <p>Journey Date</p>
             <input
+              required
               type="date"
               className="outline-none px-2 py-2 w-full date"
               name="date"
@@ -88,6 +88,7 @@ function UserInput() {
             <div className="flex flex-row">
               <img src={Vector1} alt="" />
               <select
+                required
                 className="outline-none px-2 py-2 w-full"
                 name="guests"
                 id="lws-guests"
@@ -102,12 +103,12 @@ function UserInput() {
               </select>
             </div>
           </div>
-
           <div className="des-from !border-r-0">
             <p>Class Name</p>
             <div className="flex flex-row">
               <img src={Vector3} alt="" />
               <select
+                required
                 className="outline-none px-2 py-2 w-full"
                 name="ticketClass"
                 id="lws-ticketClass"
@@ -120,7 +121,6 @@ function UserInput() {
               </select>
             </div>
           </div>
-
           <button
             disabled={booking?.length === 3}
             className="addCity"

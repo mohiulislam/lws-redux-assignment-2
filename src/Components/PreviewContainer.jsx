@@ -4,11 +4,6 @@ import SinglePreview from "./SinglePreview";
 
 function PreviewContainer() {
   const bookings = useSelector((state) => state.bookings);
-  console.log(bookings);
-
-  const a = bookings?.map((booking) => booking.bookingId);
-  console.log(a);
-
   return bookings?.length ? (
     <div className="table-container">
       <table className="booking-table">
@@ -23,17 +18,20 @@ function PreviewContainer() {
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
-          {bookings.map((booking, index) => (
-            <SinglePreview
-              key={index}
-              bookingId={a[index]}
-              from={booking.from}
-              to={booking.to}
-              date={booking.date}
-              guests={booking.guests}
-              ticketClass={booking.ticketClass}
-            />
-          ))}
+          {bookings.map((booking, index) => {
+            console.log(booking.bookingId);
+            return (
+              <SinglePreview
+                key={index}
+                bookingId={booking.bookingId}
+                from={booking.from}
+                to={booking.to}
+                date={booking.date}
+                guests={booking.guests}
+                ticketClass={booking.ticketClass}
+              />
+            );
+          })}
         </tbody>
       </table>
     </div>

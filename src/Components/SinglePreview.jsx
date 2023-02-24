@@ -1,16 +1,12 @@
 import React from "react";
 import { Fragment } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteBooking } from "../redux/counter/actions";
 function SinglePreview({ bookingId, from, to, date, guests, ticketClass }) {
-  // const bookings=useSelector((state) =>state.bookings )
   const dispatch = useDispatch();
-  function handleDelete(event) {
-    event.stopPropagation();
-    dispatch(deleteBooking(+event.target.id));
-    console.log();
+  function handleDelete(bookingId) {
+    dispatch(deleteBooking(bookingId));
   }
-
   return (
     <Fragment>
       <tr className="lws-bookedTable text-black">
@@ -34,8 +30,7 @@ function SinglePreview({ bookingId, from, to, date, guests, ticketClass }) {
         <td className="px-6 py-4 text-center">
           <div className="flex justify-center gap-4">
             <button
-              id={bookingId}
-              onClick={(event) => handleDelete(event)}
+              onClick={() => handleDelete(bookingId)}
               className="lws-remove"
             >
               <svg

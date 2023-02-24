@@ -2,7 +2,9 @@ import { ADD_BOOKING, DELETE_BOOKING } from "./actionTypes";
 function bookingReducer(state = {}, action) {
   const payloadWithBookingId = {
     ...action.payload,
-    bookingId: (state.bookings?.length ?? 0) + 1,
+    bookingId: (() => {
+      return Math.floor(Math.random()) - Date.now();
+    })(),
   };
   switch (action.type) {
     case ADD_BOOKING:
