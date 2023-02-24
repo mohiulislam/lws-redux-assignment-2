@@ -19,7 +19,6 @@ function PreviewContainer() {
         </thead>
         <tbody className="divide-y divide-gray-300/20" id="lws-previewBooked">
           {bookings.map((booking, index) => {
-            console.log(booking.bookingId);
             return (
               <SinglePreview
                 key={index}

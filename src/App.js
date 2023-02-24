@@ -5,12 +5,10 @@ import UserInput from "./Components/UserInput";
 import store from "./redux/store";
 function App() {
   return (
-    <Provider store={store} >
-      <div>
-        <Nav />
-        <UserInput />
-        <PreviewContainer />
-      </div>
+    <Provider store={store}>
+      <Nav />
+      <UserInput />
+      <PreviewContainer />
     </Provider>
   );
 }

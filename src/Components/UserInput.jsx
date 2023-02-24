@@ -6,7 +6,7 @@ import Vector1 from "../img/icons/Vector (1).svg";
 import Vector3 from "../img/icons/Vector (3).svg";
 function UserInput() {
   const dispatch = useDispatch();
-  const booking = useSelector((state) => state.bookings);
+  const bookings = useSelector((state) => state.bookings);
   function handleDispatch(event) {
     event.preventDefault();
     const from = event.target.from.value;
@@ -82,7 +82,6 @@ function UserInput() {
               id="lws-date"
             />
           </div>
-
           <div className="des-from">
             <p>Guests</p>
             <div className="flex flex-row">
@@ -122,7 +121,7 @@ function UserInput() {
             </div>
           </div>
           <button
-            disabled={booking?.length === 3}
+            disabled={bookings?.length === 3}
             className="addCity"
             type="submit"
             id="lws-addCity"

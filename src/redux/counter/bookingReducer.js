@@ -1,8 +1,10 @@
 import { ADD_BOOKING, DELETE_BOOKING } from "./actionTypes";
 function bookingReducer(state = {}, action) {
+  // Added bookingId property for filtering in delete action.
   const payloadWithBookingId = {
     ...action.payload,
     bookingId: (() => {
+      //To generate unique bookingId.
       return Math.floor(Math.random()) - Date.now();
     })(),
   };
