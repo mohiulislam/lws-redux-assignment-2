@@ -1,12 +1,12 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBooking } from "../redux/counter/actions";
 import Frame from "../img/icons/Frame.svg";
 import Vector1 from "../img/icons/Vector (1).svg";
 import Vector3 from "../img/icons/Vector (3).svg";
 function UserInput() {
   const dispatch = useDispatch();
-
+  const booking = useSelector((state) => state.bookings);
   function handleDispatch(event) {
     event.preventDefault();
     const from = event.target.from.value;
@@ -121,7 +121,12 @@ function UserInput() {
             </div>
           </div>
 
-          <button className="addCity" type="submit" id="lws-addCity">
+          <button
+            disabled={booking?.length === 3}
+            className="addCity"
+            type="submit"
+            id="lws-addCity"
+          >
             <svg
               width="15px"
               height="15px"

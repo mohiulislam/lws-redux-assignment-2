@@ -6,9 +6,9 @@ export function addBooking(data) {
     payload: data,
   };
 }
-export function deleteBooking(bookingToBeDelete) {
+export function deleteBooking(bookingId) {
   return {
     type: DELETE_BOOKING,
-    payload: bookingToBeDelete,
+    payload: bookingId,
   };
 }

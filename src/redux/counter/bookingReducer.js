@@ -1,13 +1,17 @@
 import { ADD_BOOKING, DELETE_BOOKING } from "./actionTypes";
 function bookingReducer(state = {}, action) {
+  const payloadWithBookingId = {
+    ...action.payload,
+    bookingId: (state.bookings?.length ?? 0) + 1,
+  };
   switch (action.type) {
     case ADD_BOOKING:
       if ((state.bookings?.length ?? 0) < 3) {
         return {
           ...state,
           bookings: state.bookings
-            ? [...state.bookings, action.payload]
-            : [action.payload],
+            ? [...state.bookings, payloadWithBookingId]
+            : [payloadWithBookingId],
         };
       } else {
         return state;
@@ -15,7 +19,9 @@ function bookingReducer(state = {}, action) {
     case DELETE_BOOKING:
       return {
         ...state,
-        items: state.bookings.filter((item) => item.id !== action.payload),
+        bookings: state.bookings.filter(
+          (booking) => booking.bookingId !== action.payload
+        ),
       };
     default:
       return state;
